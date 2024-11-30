@@ -11,6 +11,9 @@ dead_code = "allow"
 unused_imports = "allow"
 unused_variables = "allow"
 
+[dependencies.nom]
+version = "7.1.3"
+
 [dependencies.wiwi]
 git = "https://github.com/meadowsys/wiwi"
 rev = "5a141bf21441f12822468cc6e1bbdaa6e93f1ec7"
