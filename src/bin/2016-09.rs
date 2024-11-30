@@ -16,13 +16,13 @@ fn main() {
 	assert!(input.is_ascii());
 
 	let decompressed = decompress(&input, true);
-	print_p1(decompressed.len());
+	print_p1(decompressed);
 
 	let decompressed = decompress(&input, false);
-	print_p2(decompressed.len());
+	print_p2(decompressed);
 }
 
-fn decompress(mut input: &[u8], v1: bool) -> Vec<u8> {
+fn decompress(mut input: &[u8], v1: bool) -> usize {
 	let inner_marker = tuple((
 		take_while::<_, &[u8], _>(|c| c.is_ascii_digit()),
 		tag::<_, _, ()>(b"x"),
@@ -35,11 +35,11 @@ fn decompress(mut input: &[u8], v1: bool) -> Vec<u8> {
 		tag(b")")
 	);
 
-	let mut decompressed = Vec::new();
+	let mut decompressed = 0;
 	loop {
 		let stuff;
 		(input, stuff) = take_while::<_, _, ()>(|c: u8| c.is_ascii_alphanumeric() || c == b')')(input).unwrap();
-		decompressed.extend_from_slice(stuff);
+		decompressed += stuff.len();
 		if input.is_empty() { break }
 
 		let marker;
@@ -51,10 +51,10 @@ fn decompress(mut input: &[u8], v1: bool) -> Vec<u8> {
 		let stuff;
 		(input, stuff) = bytes::take::<usize, &[u8], ()>(amount)(input).unwrap();
 		if v1 {
-			(0..repeat).for_each(|_| decompressed.extend_from_slice(stuff));
+			(0..repeat).for_each(|_| decompressed += stuff.len());
 		} else {
 			let stuff = decompress(stuff, false);
-			(0..repeat).for_each(|_| decompressed.extend_from_slice(&stuff));
+			decompressed += stuff * repeat;
 		}
 	}
 	decompressed
