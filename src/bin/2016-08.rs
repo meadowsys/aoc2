@@ -59,7 +59,8 @@ fn main() {
 			}
 		});
 
-	print_p1(display.p1_count())
+	print_p1(display.p1_count());
+	print_p2(display.p2_print());
 }
 
 /// topleft || d[0]    | d[1]    | d[2]    ...
@@ -107,5 +108,9 @@ impl Display {
 
 	fn p1_count(&self) -> usize {
 		self.inner.iter().flatten().filter(|cell| **cell).count()
+	}
+
+	fn p2_print(&self) -> String {
+		iter::once('\n').chain(self.inner.iter().flat_map(|c| c.iter().map(|r| if *r { '#' } else { ' ' }).chain(iter::once('\n')))).collect()
 	}
 }
