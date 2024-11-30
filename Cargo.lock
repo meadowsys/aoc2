@@ -625,7 +625,7 @@ checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
 [[package]]
 name = "wiwi"
 version = "0.10.0"
-source = "git+https://github.com/meadowsys/wiwi?rev=79c349a78c9be0fd68d9d7338592ef4468a0047e#79c349a78c9be0fd68d9d7338592ef4468a0047e"
+source = "git+https://github.com/meadowsys/wiwi?rev=5a141bf21441f12822468cc6e1bbdaa6e93f1ec7#5a141bf21441f12822468cc6e1bbdaa6e93f1ec7"
 dependencies = [
  "chrono",
  "hashbrown",
@@ -640,7 +640,7 @@ dependencies = [
 [[package]]
 name = "wiwiwiwiwi"
 version = "0.10.0"
-source = "git+https://github.com/meadowsys/wiwi?rev=79c349a78c9be0fd68d9d7338592ef4468a0047e#79c349a78c9be0fd68d9d7338592ef4468a0047e"
+source = "git+https://github.com/meadowsys/wiwi?rev=5a141bf21441f12822468cc6e1bbdaa6e93f1ec7#5a141bf21441f12822468cc6e1bbdaa6e93f1ec7"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -651,4 +651,4 @@ dependencies = [
 [[package]]
 name = "wiwiwiwiwiwiwiwiwiwi"
 version = "0.10.0"
-source = "git+https://github.com/meadowsys/wiwi?rev=79c349a78c9be0fd68d9d7338592ef4468a0047e#79c349a78c9be0fd68d9d7338592ef4468a0047e"
+source = "git+https://github.com/meadowsys/wiwi?rev=5a141bf21441f12822468cc6e1bbdaa6e93f1ec7#5a141bf21441f12822468cc6e1bbdaa6e93f1ec7"
