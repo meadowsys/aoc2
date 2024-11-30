@@ -1,0 +1,21 @@
+[package]
+name = "aoc"
+version = { workspace = true }
+edition = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+license = { workspace = true }
+
+[dependencies]
+wiwi = { workspace = true }
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Meadowsys <meadowsys@kiwin.gay>"]
+repository = "https://github.com/meadowsys/aoc2"
+license = "AGPL-3.0-only"
+
+[workspace.dependencies.wiwi]
+git = "https://github.com/meadowsys/wiwi"
+rev = "79c349a78c9be0fd68d9d7338592ef4468a0047e"
