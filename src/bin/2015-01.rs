@@ -13,15 +13,14 @@ fn main() {
 	print_p1(floor);
 
 	let mut val = 0isize;
-	let floor = input
+	let (floor, _) = input
 		.chars()
 		.enumerate()
 		.find(|(i, c)| {
 			val += get_value(*c);
 			val.is_negative()
 		})
-		.unwrap()
-		.0;
+		.unwrap();
 	print_p2(floor + 1);
 }
 
