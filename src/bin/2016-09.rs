@@ -15,6 +15,14 @@ fn main() {
 	// we workin with ASCII now aha
 	assert!(input.is_ascii());
 
+	let decompressed = decompress(&input, true);
+	print_p1(decompressed.len());
+
+	let decompressed = decompress(&input, false);
+	print_p2(decompressed.len());
+}
+
+fn decompress(mut input: &[u8], v1: bool) -> Vec<u8> {
 	let inner_marker = tuple((
 		take_while::<_, &[u8], _>(|c| c.is_ascii_digit()),
 		tag::<_, _, ()>(b"x"),
@@ -28,7 +36,6 @@ fn main() {
 	);
 
 	let mut decompressed = Vec::new();
-	let mut input = &*input;
 	loop {
 		let stuff;
 		(input, stuff) = take_while::<_, _, ()>(|c: u8| c.is_ascii_alphanumeric() || c == b')')(input).unwrap();
@@ -43,8 +50,12 @@ fn main() {
 
 		let stuff;
 		(input, stuff) = bytes::take::<usize, &[u8], ()>(amount)(input).unwrap();
-		(0..repeat).for_each(|_| decompressed.extend_from_slice(stuff));
+		if v1 {
+			(0..repeat).for_each(|_| decompressed.extend_from_slice(stuff));
+		} else {
+			let stuff = decompress(stuff, false);
+			(0..repeat).for_each(|_| decompressed.extend_from_slice(&stuff));
+		}
 	}
-
-	print_p1(decompressed.len());
+	decompressed
 }
