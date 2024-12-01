@@ -16,4 +16,4 @@ version = "7.1.3"
 
 [dependencies.wiwi]
 git = "https://github.com/meadowsys/wiwi"
-rev = "5a141bf21441f12822468cc6e1bbdaa6e93f1ec7"
+rev = "52bb3e13b7fc6162920addfb39817cb413e74aa3"
