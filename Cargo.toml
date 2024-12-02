@@ -9,7 +9,11 @@ license = "AGPL-3.0-only"
 [lints.rust]
 dead_code = "allow"
 unused_imports = "allow"
+unused_mut = "allow"
 unused_variables = "allow"
+
+[lints.clippy]
+unnecessary_lazy_evaluations = "allow"
 
 [dependencies.nom]
 version = "7.1.3"
